@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{{ url_for('static', filename='mystyles.css') }}">
+
+<head>
+  <meta charset="utf-8">
+  <title>FloridaHolidays@Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/mystyles.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+  <script src="js/realest.js"></script>
+  <style>
+    img
+    {
+      margin:auto;
+    }
+    .card
+    {
+     background-image: linear-gradient(#F0F8FF,#89CFF0,#F0F8FF);
+    }
+    #quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 60px;
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+.team4 {
+  font-family: "Montserrat", sans-serif;
+  color: #8d97ad;
+  font-weight: 300;
+}
+
+.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5, .team4 h6 {
+  color: #3e4555;
+}
+
+.team4 .font-weight-medium {
+  font-weight: 500;
+}
+
+.team4 h5 {
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.team4 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+    font-size: 13px;
+}
+
+.team4 ul li a {
+  color: #8d97ad;
+  padding-right: 15px;
+  -webkit-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
+  transition: 0.1s ease-in;
+}
+
+.team4 ul li a:hover {
+  -webkit-transform: translate3d(0px, -5px, 0px);
+  transform: translate3d(0px, -5px, 0px);
+  color: #316ce8;
+}
+#cont
+{
+  color:#000;
+}
+  </style>
+
+</head>
+
+<body style="background-image: linear-gradient(#F0F8FF,#89CFF0,#F0F8FF);">
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark container" >
+
+        <a class="navbar-brand" href="{{ url_for('index') }}" style="color:black;">Florida<span style="color:#007bff;">Holidays</span> </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" style="background-color:black;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}" style="color:black;">Home</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link text-black" href="{{ url_for('index') }}#services" class="btn btn-danger" style="color:black;">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="{{ url_for('about') }}" class="btn btn-danger" style="color:black;">About Us</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link text-black" href="{{ url_for('contact') }}" class="btn btn-danger" style="color:black;">Contact Us</a>
+            </li>
+           
+          </ul>
+        </div>
+      </nav>
+
+    <section id="who" class="text-center container">
+        <h2>Who Are We</h2>
+        <p><h5>Florida is one of the top tourist destinations in the US and is renowned for its beautiful beaches, top-notch theme parks, exciting nightlife, and varied cultural heritage. Our tour packages are created to highlight the finest that Florida has to offer, making sure that you have a memorable vacation.</h5></p>
+    </section>
+<div class="py-5 team4">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-7 text-center">
+        <h2 class="mb-3">Experienced & Professional Team</h2>
+        
+      </div>
+    </div>
+    <div class="row">
+      <!-- column  -->
+      <div class="col-lg-3 mb-4">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <img src="../static/images/manish.jpg" alt="Manish" class="img-fluid rounded-circle" />
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Manish Boyina</h5>
+              <h4 class="subtitle mb-3" id="cont">Data Analyst</h4>
+              <p id="cont">I am a data analyst with three years of experience in machine learning and data science projects. In this project, I am responsible for designing the website layout.</p>
+              <h5>manishboyina@usf.edu</h5>
+              <a href="https://www.linkedin.com/in/manish-boyina/" class="btn btn-primary">Contact</a>
+              
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+      </div>
+      <!-- column  -->
+      <!-- column  -->
+      <div class="col-lg-3 mb-4">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <img src="../static/images/varun.jpg" alt="Varun" class="img-fluid rounded-circle" />
+          </div>
+          <div class="col-md-12 text-center text-black">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Varun Reddy Surakanti</h5>
+              <h6 class="subtitle mb-3" id="cont">SQL Developer</h6>
+              <p id="cont">I have a work experience of two plus years as SQL developer. In this project, I handle with CSS elements and content in the website.</p>
+              <h5>surakanti11@usf.edu.com</h5>
+             <a href="https://www.linkedin.com/in/varun-reddy-surakanti-414a49201/" class="btn btn-primary">Contact</a>
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+      </div>
+      <!-- column  -->
+      <!-- column  -->
+      <div class="col-lg-3 mb-4">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <img src="../static/images/shreya.jpg" alt="Shreya" class="img-fluid rounded-circle" />
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Shreya Reddy Vurelly</h5>
+              <h6 class="subtitle mb-3" id="cont">Software Engineer</h6>
+              <p id="cont">I'm a software engineer with two years of experience in developing  processes using python. <br>
+              I'm responsible for CSS elements and functionality testing.</p>
+              <h5>shreyareddyvurelly@usf.edu</h5>
+              <a href="https://www.linkedin.com/in/shreya-reddy-vurelly-a9390b265/" class="btn btn-primary">Contact</a>
+             
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+      </div>
+      <!-- column  -->
+      <!-- column  -->
+      <div class="col-lg-3 mb-4">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <img src="../static/images/varma.jpg" alt="Varma" class="img-fluid rounded-circle" />
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">SMR Varma Kathari</h5>
+              <h6 class="subtitle mb-3" id="cont">Backend Developer</h6>
+              <p id="cont">I'm a backend developer with two years of experience in python and django. <br>I'm responsible for bootstrap content for the website.</p>
+              <h5>kathari@usf.edu</h5>
+              <a href="https://www.linkedin.com/in/smr-varma-katari-9b79a2259/"class="btn btn-primary">Contact</a>
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<section>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-xl-8 text-center">
+      <h2 class="mb-4">Client Reviews</h2>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-4 mb-5 mb-md-0">
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">Maria Smantha</h5>
+      <h6 class="text-primary mb-3">Google Reviews</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Liked their services.Would recommend.
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+         <li>
+          <i class="far fa-star fa-sm text-warning"></i>
+        </li>
+         <li>
+          <i class="far fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 mb-5 mb-md-0">
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">Lisa Cudrow</h5>
+      <h6 class="text-primary mb-3">Facebook Reviews</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Very affordable rates and friendly staff.
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 mb-0">
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">John Smith</h5>
+      <h6 class="text-primary mb-3">Google Reviews</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Excellent service offered.
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="far fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section><br>
+
+<footer class="bg-primary">
+  <div class="content bg-primary">
+   
+    <div class="link-boxes">
+      <ul class="box">
+        <li class="link_name">Florida Holidays</li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('index') }}#services">Services</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+        <li><a href="{{ url_for('about') }}">About us</a></li>          
+      </ul>
+      <ul class="box">
+        <li class="link_name">Services</li>
+        <li><a href="#services">Miami Tour</a></li>
+        <li><a href="#services">Key West Tour</a></li>
+        <li><a href="#services">Tampa Tour</a></li>
+      </ul>
+      <ul class="box">
+        <li class="link_name">Social Pages</li>
+        <li><a href="{{ url_for('contact') }}"><i class="fab fa-instagram fa-2x" style="color: #fff;"></i></a></li>
+        <li><a href="{{ url_for('contact') }}"><i class="fab fa-linkedin-in fa-2x" style="color: #fff;"></i></a></li>
+        <li><a href="{{ url_for('contact') }}"><i class="fab fa-facebook-f fa-2x" style="color: #fff;"></i></a></li>
+      </ul>
+      <ul class="box">
+        <li class="link_name">Office Location</li>
+        <li><a href="#">Atlanta</a></li>
+        <li><a href="#">Florida</a></li>
+        <li><a href="#">New York</a></li>
+       
+      </ul>        
+      <ul class="box input-box">
+        <li class="link_name">Subscribe</li>
+        <li><input type="text" placeholder="Enter your email"></li>
+        <li><input type="button" value="Subscribe"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-details bg-primary">
+    <div class="bottom_text">
+      <span class="copyright_text">Copyright © 2023<a href="#">Florida Holidays.</a>All rights reserved</span>
+      <span class="policy_terms">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms & condition</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>      
+</html>
+

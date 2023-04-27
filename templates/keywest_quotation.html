@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>FloridaHolidays@Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='mystyles.css') }}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/mystyles.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <style>
+    .navbar-brand {
+      font-family: "Ubuntu";
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .nav-item {
+      padding: 0 18px;
+    }
+
+    .nav-link {
+      font-size: 1.2rem;
+      font-family: "Montserrat-Light";
+    }
+
+    .nav-link:hover {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 20px;
+    }
+
+    .header {
+      background: #00C9FF;
+    }
+
+    .bi {
+      color: #00C9FF;
+    }
+
+    .price {
+      color: white;
+      font-size: 50px;
+      font-weight: 500;
+      padding-top: -80% !important;
+    }
+
+    .pac {
+      font-size: 50px;
+      font-family: "Monaco", "Courier New", monospace;
+    }
+
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
+      background-color: transparent;
+      width: auto;
+      height: auto;
+      perspective: 1000px;
+      /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 80%;
+      height: 80%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color: #00C9FF;
+      color: white;
+      height: auto;
+      padding: 50px 0px;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      background-color: white;
+      color: black;
+      transform: rotateY(180deg);
+      padding: 50px 0px;
+    }
+
+    html {
+  position: relative;
+  /* min-height: 100%; */
+ 
+}
+body {
+ 
+  margin-bottom: 200px;
+  
+
+} 
+#footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+    
+
+  </style>
+</head>
+
+<body style="background-image: linear-gradient(#F0F8FF,#89CFF0,#F0F8FF);">
+
+  <!-- Nav Bar -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+
+    <a class="navbar-brand" href="{{ url_for('index') }}" style="color:black;">Florida<span
+        style="color:#007bff;">Holidays</span> </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      style="background-color:black;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}" style="color:black;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="{{ url_for('index') }}#services" class="btn btn-danger" style="color:black;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="{{ url_for('about') }}" class="btn btn-danger" style="color:black;">About
+            Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="{{ url_for('contact') }}" class="btn btn-danger"
+            style="color:black;">Contact Us</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <div id="demo" class="carousel slide container-fluid" data-ride="carousel"></div>
+
+
+
+
+  <div class="container p-5 text-center">
+
+    <h1 class="pac">Keywest Tour Packages</h1>
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="h-100 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+
+              <span class="price">$99</span><br>/person
+              <br>
+              <h2 class="card-title">Basic</h2>
+
+            </div>
+            <div class="flip-card-back">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>2-nights & 1-day</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>No food/accomodation</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>Selected attractions only</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="h-100 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+
+              <span class="price">$399</span><br>/person
+              <br>
+              <h2 class="card-title">Standard</h2>
+            </div>
+            <div class="flip-card-back">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>3-days & 2-days</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>Food and accomodation included</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>Selected attractions only</li>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="h-100 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+
+              <span class="price">$999</span><br>/person
+              <br>
+              <h2 class="card-title">Premium</h2>
+            </div>
+            <div class="flip-card-back">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>3-nights & 2-days</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>Food and accomodation included</li>
+                <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path
+                      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>Includes skydiving and all other attractions</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  footer -->
+  <footer class="bg-primary" id="footer">
+    <div class="content bg-primary">
+
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">Florida Holidays</li>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('index') }}#services">Services</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Services</li>
+          <li><a href="#services">Miami Tour</a></li>
+          <li><a href="#services">Key West Tour</a></li>
+          <li><a href="#services">Tampa Tour</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Social Pages</li>
+          <li><a href="{{ url_for('contact') }}"><i class="fab fa-instagram fa-2x" style="color: #fff;"></i></a></li>
+          <li><a href="{{ url_for('contact') }}"><i class="fab fa-linkedin-in fa-2x" style="color: #fff;"></i></a></li>
+          <li><a href="{{ url_for('contact') }}"><i class="fab fa-facebook-f fa-2x" style="color: #fff;"></i></a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Office Location</li>
+          <li><a href="#">Atlanta</a></li>
+          <li><a href="#">Florida</a></li>
+          <li><a href="#">New York</a></li>
+
+        </ul>
+        <ul class="box input-box">
+          <li class="link_name">Subscribe</li>
+          <li><input type="text" placeholder="Enter your email"></li>
+          <li><input type="button" value="Subscribe"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-details bg-primary">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2023<a href="#">Florida Holidays.</a>All rights reserved</span>
+        <span class="policy_terms">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms & condition</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
